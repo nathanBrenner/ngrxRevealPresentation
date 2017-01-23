@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>ngrx demo</title>
+
+		<link rel="stylesheet" href="./node_modules/reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="./node_modules/reveal.js/css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./node_modules/reveal.js/lib/css/zenburn.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<hgroup>
+						<h1>managing state</h1>
+						<h2>in Angular 2 apps with NGRX</h2>
+						<h3>Nathan Brenner</h3>
+
+						<aside data-markdown class="notes">
+							- self taught with the help of a code school 
+							- ng 1, ng 2, html emails at CMD, backbone app at Biamp in Beaverton
+							- node and python
+							- angular 2 work started in September to December, remote work, nathan walker nativescript typescript meetup
+						</aside>
+					</hgroup>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Purpose:</h2>
+
+						<p>Demonstrate a way to write the following features in angular 2 apps with ngrx:
+							<ul>
+								<li>user registration</li>
+								<li>user login</li>
+								<li>session persistence</li>
+							</ul>
+						</p>
+						<aside class="notes" data-markdown>
+							- Lot to cover, 
+
+							- Really want to get to effects, 
+
+							- ask questions
+						</aside>
+					</section>
+
+					<section>
+						<p>dependencies:</p>
+						<ul>
+							<li><a href="https://github.com/angular/angular-cli">Angular 2 cli</a></li>
+							<li><a href="https://material.angularjs.org/latest/">angular material</a></li>
+							<li><a href="https://github.com/ngrx">ngrx store and effects</a></li>
+						</ul>
+					</section>
+					<section>
+						<p>Where to find the code:</p>
+						<ul>
+							<li><a href="https://github.com/nathanBrenner/ngrxDemo">angular 2 app</a></li>
+							<li><a href="https://github.com/SecretSantaNg2Python/secretSanta-api">Rest API</a></li>
+							<li><a href="http://nathanbrenner.github.io/ngrx-tutorial">blog post</a></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<p>How do you manage state in angular 2?</p>
+					<p class="fragment">What is state?</p>
+					<p class="fragment">Is there a more elegant solution than sharing state between components?</p>
+
+					<aside class="notes" data-markdown>
+						- question from dev that favored react
+							- didn't really understand what state was
+							- told him that it's handled with services, just like in angular 1
+							- later, when I started looking at React, state was one of the first issues that were addressed
+						- ng1: multi-step form: multiple routes, push the data into a service, separate of your services that handle http requests
+
+						- state: the state of your app, the stored information/data that is available to the user, like what data is available if they're logged in or their role, what their profile looks like, if there are any errors on the page
+					</aside>
+				</section>
+
+				<section>
+					<img src="./imgs/ngrxLogo.png" alt="ngrx logo" style="border: 0px; border-radius:100px;">
+					<h2>ngrx</h2>
+					<p>Flux => Redux => ng2 + observables => ngrx</p>
+					<aside class="notes" data-markdown>
+						- Redux with ng2
+						- Flux => Redux => ng2 + observables => ngrx
+						- ngrx: reactive extensions for angular
+							- store: state management
+							- effects: side effect model for ngrx store, side effect: modifies the state
+							- store-devtools
+						- Its a functional approach to managing state
+						- Lukas Ruebbelke, Rob Wormald, Mike Ryan, Brian Troncone, few others
+						- rxjs: Observables: lazy push collections on multiple values
+							- promise: active, produces data at it's own pace
+							- passive: reacts to recieved data
+					</aside>
+				</section>
+				<section>
+					demo
+				</section>
+				<section>
+					Why wouldn't you use ngrx?
+					<aside class="notes" data-markdown>
+						- embedded data-structures
+						- promises
+						- time to invest in learning this approach
+					</aside>
+				</section>
+			</div>
+		</div>
+
+		<script src="./node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="./node_modules/reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: './node_modules/reveal.js/plugin/markdown/marked.js' },
+					{ src: './node_modules/reveal.js/plugin/markdown/markdown.js' },
+					{ src: './node_modules/reveal.js/plugin/notes/notes.js', async: true },
+					{ src: './node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
